@@ -1,0 +1,16 @@
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'Gemfile'
+    - '**/bin/**/*'
+    - '**/config/**/*'
+    - '**/db/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+
+Style/Documentation:
+  Enabled: false

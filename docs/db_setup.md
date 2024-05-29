@@ -30,7 +30,7 @@ default: &default
 
 development: &development
   <<: *default
-  database: project_name_development
+  database: basic_login_development
   host: db
   username: postgres
   password: postgres
@@ -67,7 +67,7 @@ development: &development
 # Do not set this db to the same as development or production.
 test:
   <<: *development
-  database: project_name_test
+  database: basic_login_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -91,8 +91,8 @@ test:
 #
 production:
   <<: *default
-  database: project_name_production
+  database: basic_login_production
   username: admin
-  password: <%= ENV["PROJECT_NAME_DATABASE_PASSWORD"] %>
+  password: <%= ENV["BASIC_LOGIN_DATABASE_PASSWORD"] %>
 
 ```

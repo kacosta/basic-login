@@ -3,58 +3,58 @@
 # TODO:
 #   1. Update Rails Test DB name (ex: rails_db_test)
 
-# name: "Basic Login | Ruby on Rails CI"
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
-# jobs:
-#   rubocop_and_audit:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-#       - name: Install Ruby and gems
-#         uses: ruby/setup-ruby@v1
-#         with:
-#           bundler-cache: true
-#       - name: Lint Ruby files
-#         run: bundle exec rubocop --parallel
-#       - name: Security audit dependencies
-#         run: |
-#           gem install bundler-audit
-#           bundler-audit --update
-#       - name: Security audit application code
-#         run: |
-#           gem install brakeman
-#           brakeman -q -w2
+name: "Basic Login | Ruby on Rails CI"
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  rubocop_and_audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Lint Ruby files
+        run: bundle exec rubocop --parallel
+      - name: Security audit dependencies
+        run: |
+          gem install bundler-audit
+          bundler-audit --update
+      - name: Security audit application code
+        run: |
+          gem install brakeman
+          brakeman -q -w2
 
-#   rails_test:
-#     runs-on: ubuntu-latest
-#     services:
-#       postgres:
-#         image: postgres
-#         ports:
-#           - "5432:5432"
-#         env:
-#           POSTGRES_DB: rails_db_test
-#           POSTGRES_USER: postgres
-#           POSTGRES_PASSWORD: postgres
-#     env:
-#       RAILS_ENV: test
-#       DATABASE_URL: "postgres://postgres:postgres@localhost:5432/rails_db_test"
+  rails_test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_DB: basic_login_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/basic_login_test"
   
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-#       - name: Set up Ruby
-#         uses: ruby/setup-ruby@v1
-#         with:
-#           bundler-cache: true
-#       - name: Install dependencies
-#         run: bundle install --jobs 4 --retry 3
-#       - name: Set up database schema
-#         run: bin/rails db:schema:load
-#       - name: Run tests
-#         run: bundle exec rspec
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+      - name: Set up database schema
+        run: bin/rails db:schema:load
+      - name: Run tests
+        run: bundle exec rspec

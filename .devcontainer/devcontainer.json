@@ -12,7 +12,8 @@
 				"wayou.vscode-todo-highlight",
 				"Shopify.ruby-lsp",
 				"bradlc.vscode-tailwindcss",
-				"bung87.rails"
+				"bung87.rails",
+				"github.vscode-github-actions"
 			]
 		}
 	}
