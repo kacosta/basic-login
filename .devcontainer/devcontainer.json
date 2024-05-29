@@ -8,7 +8,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"wayou.vscode-todo-highlight",
+				"Shopify.ruby-lsp",
+				"bradlc.vscode-tailwindcss",
+				"bung87.rails"
 			]
 		}
 	}
