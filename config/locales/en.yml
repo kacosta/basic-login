@@ -29,3 +29,5 @@
 
 en:
   hello: "Hello world"
+  registration:
+    created: "You have successfully signed up! Please check your email to activate your account."
