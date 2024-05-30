@@ -29,5 +29,9 @@
 
 en:
   hello: "Hello world"
-  registration:
+  registrations:
     created: "You have successfully signed up! Please check your email to activate your account."
+  sessions:
+    created: "You have successfully signed in."
+    destroyed: "You have successfully signed out."
+    invalid: "Invalid email or password."
