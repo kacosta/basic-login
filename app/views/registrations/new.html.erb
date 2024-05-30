@@ -1,6 +1,5 @@
 <div>
   <h1 class="font-bold text-4xl">Registration#new</h1>
-  <h1 class="font-bold text-4xl"> <%= @user.errors.any? %> </h1>
   <% if @user.errors.any? %>
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
       <strong class="font-bold">Holy smokes! Something went wrong!</strong>
@@ -15,32 +14,32 @@
   <%= form_with model: @user, url: registrations_path, local: true do |form| %>
     <div class="mt-5">
       <%= form.label :name, class: "block" %>
-      <%= form.text_field :name, class: "block w-full mt-1" %>
+      <%= form.text_field :name, required: true, class: "block w-full mt-1" %>
     </div>
 
     <div class="mt-5">
       <%= form.label :last_name, class: "block" %>
-      <%= form.text_field :last_name, class: "block w-full mt-1" %>
+      <%= form.text_field :last_name, required: true, class: "block w-full mt-1" %>
     </div>
 
     <div class="mt-5">
       <%= form.label :birthdate, class: "block" %>
-      <%= form.date_field :birthdate, class: "block w-full mt-1" %>
+      <%= form.date_field :birthdate, required: true, class: "block w-full mt-1" %>
     </div>
 
     <div class="mt-5">
       <%= form.label :email, class: "block" %>
-      <%= form.email_field :email, class: "block w-full mt-1" %>
+      <%= form.email_field :email, required: true, class: "block w-full mt-1" %>
     </div>
 
     <div class="mt-5">
       <%= form.label :password, class: "block" %>
-      <%= form.password_field :password, class: "block w-full mt-1" %>
+      <%= form.password_field :password, required: true, class: "block w-full mt-1" %>
     </div>
 
     <div class="mt-5">
       <%= form.label :password_confirmation, class: "block" %>
-      <%= form.password_field :password_confirmation, class: "block w-full mt-1" %>
+      <%= form.password_field :password_confirmation, required: true, class: "block w-full mt-1" %>
     </div>
 
     <div class="mt-5">
