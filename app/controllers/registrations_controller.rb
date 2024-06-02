@@ -11,6 +11,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(registration_params)
     respond_to do |format|
       if @user.save
+        @user.send_confirmation_email!
         format.html { redirect_to root_path, notice: I18n.t('registrations.created') }
       else
         format.html { render :new, status: :unprocessable_entity }
