@@ -1,0 +1,6 @@
+<h1>UserAccount | Account Confirmation</h1>
+
+<p>
+  Hello <%= @user.name %>, this is an email from us! We are delighted to have you as a user.
+  Please <%= button_to "click here", account_activation_url(params[:token]), method: :patch, form: {target: '_blank'} %> to confirm your account.
+</p>

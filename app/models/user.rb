@@ -11,5 +11,24 @@ class User < ApplicationRecord
 
   normalizes :email, with: ->(email) { email.strip.downcase }
 
-  enum role: { user: 0, admin: 1 }
+  enum role: { basic: 0, admin: 1 }
+
+  generates_token_for :email_confirmation, expires_in: 24.hours do
+    name
+  end
+
+  def confirmed?
+    confirmed_at.present?
+  end
+
+  def confirm_account!
+    update!(confirmed_at: Time.current)
+  end
+
+  def send_confirmation_email!
+    UserAccountMailer.with(
+      user: self,
+      token: generate_token_for(:email_confirmation)
+    ).confirm_account.deliver_later
+  end
 end

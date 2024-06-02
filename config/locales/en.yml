@@ -35,3 +35,9 @@ en:
     created: "You have successfully signed in."
     destroyed: "You have successfully signed out."
     invalid: "Invalid email or password."
+  account_activations:
+    activated: "Account activated!"
+    invalid: "Invalid activation link."
+    resend: "Account Activation email was resend. Please check your email to activate your account."
+    activation_link: "click here to resend"
+    unconfirmed: "Your account needs to be confirmed, check your email inbox for activation link. If you didn't receive the email, %{activation_link}"

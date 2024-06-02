@@ -13,7 +13,11 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex flex-col space-y-4">
-      <div class="w-full">
+      <div class="w-full space-y-4">
+        <% if current_user.present? && !current_user.confirmed? %>
+          <%= confirmation_link_message %>
+        <% end %>
+
         <% if notice %>
           <p class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
             <%= notice %>
