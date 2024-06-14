@@ -1,0 +1,14 @@
+<div>
+  <h1 class="font-bold text-4xl">Password Resets#new</h1>
+
+  <%= form_with model: @user, url: password_resets_path do |form| %>
+    <div class="mt-5">
+      <%= form.label :email, class: "block" %>
+      <%= form.email_field :email, required: true, class: "block w-full mt-1" %>
+    </div>
+
+    <div class="mt-5">
+      <%= form.submit "Reset password", class: "bg-blue-500 text-white px-4 py-2 rounded cursor-pointer" %>
+    </div>
+  <% end %>
+</div>
