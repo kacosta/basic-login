@@ -17,6 +17,10 @@ class User < ApplicationRecord
     name
   end
 
+  generates_token_for :password_reset, expires_in: 30.minutes do
+    password_salt.last(10)
+  end
+
   def confirmed?
     confirmed_at.present?
   end
@@ -30,5 +34,12 @@ class User < ApplicationRecord
       user: self,
       token: generate_token_for(:email_confirmation)
     ).confirm_account.deliver_later
+  end
+
+  def send_password_reset_email!
+    UserAccountMailer.with(
+      user: self,
+      token: generate_token_for(:password_reset)
+    ).password_reset.deliver_later
   end
 end

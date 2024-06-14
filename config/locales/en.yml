@@ -41,3 +41,14 @@ en:
     resend: "Account Activation email was resend. Please check your email to activate your account."
     activation_link: "click here to resend"
     unconfirmed: "Your account needs to be confirmed, check your email inbox for activation link. If you didn't receive the email, %{activation_link}"
+  password_resets:
+    created: "Email sent with password reset instructions."
+    not_found: "User not found."
+    invalid_token: "Invalid password reset link."
+    updated: "Password has been reset."
+  mailers:
+    account_mailer:
+      account_activation:
+        subject: "Basic Login App | Confirm your account"
+      password_reset:
+        subject: "Basic Login | Password Reset"

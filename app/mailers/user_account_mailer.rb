@@ -8,6 +8,17 @@ class UserAccountMailer < ApplicationMailer
   #
   def confirm_account
     @user = params[:user]
-    mail to: @user.email
+    mail(
+      to: @user.email,
+      subject: I18n.t('mailers.account_mailer.account_activation.subject')
+    )
+  end
+
+  def password_reset
+    @user = params[:user]
+    mail(
+      to: @user.email,
+      subject: I18n.t('mailers.account_mailer.password_reset.subject')
+    )
   end
 end
